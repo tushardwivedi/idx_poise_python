@@ -1,0 +1,22 @@
+---
+driver:
+  name: vagrant
+  
+# Share a local folder
+#  synced_folders: [
+#    ["./chef-pkgs", "/tmp/chef-pkgs"]
+#  ]
+provisioner:
+  name: chef_zero
+
+# curl accepts a local file:// url
+#  chef_omnibus_url: file:///tmp/chef-pkgs/install.sh
+  
+platforms:
+  - name: centos-7.1
+
+suites:
+  - name: default
+    run_list:
+      - recipe[idx_poise_python::default]
+    attributes:
